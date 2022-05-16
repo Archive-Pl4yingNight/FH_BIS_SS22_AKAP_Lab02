@@ -290,3 +290,305 @@ Serial0/1/0 is up, line protocol is up (connected)
      DCD=up  DSR=up  DTR=up  RTS=up  CTS=up
 
 ROst>
+
+
+! EX-2-H
+
+ROst#
+%LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0, changed state to down
+
+%DUAL-5-NBRCHANGE: IP-EIGRP 23: Neighbor 172.31.255.246 (Serial0/1/0) is down: interface down
+
+DUAL: linkdown: start - 172.31.255.246 via Serial0/1/0
+
+DUAL: Destination 172.16.0.0/16
+
+DUAL: rcvupdate: 172.16.0.0/16 via 172.31.255.246 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.16.0.0/16. FD is 2170112, RD is 2816
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.31.255.228/30
+
+DUAL: rcvupdate: 172.31.255.228/30 via 172.31.255.246 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.228/30. FD is 2681856, RD is 2169856
+
+DUAL: linkdown: finish
+
+DUAL: rcvupdate: 172.31.255.244/30 via 0.0.0.0 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.244/30. FD is 2169856, RD is 0
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: ifdelete: Serial0/1/0 is being deleted
+DUAL: dual_ifdelete(): finish
+
+DUAL: rcvupdate: 172.16.0.0/16 via 172.31.255.242 metric 2682112/2170112
+
+DUAL: Find FS for dest: 172.16.0.0/16. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.16.0.0/16 via 172.31.255.242
+DUAL: Send update about 172.16.0.0/16.  Reason: metric chg
+
+DUAL: rcvupdate: 172.16.0.0/16 via 172.31.255.253 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.16.0.0/16. FD is 2682112, RD is 2170112
+
+DUAL: rcvupdate: 172.31.255.244/30 via 172.31.255.242 metric 4294967295/4294967295
+
+DUAL: rcvupdate: 172.31.255.244/30 via Connected metric 4294967295/0
+
+DUAL: Find FS for dest: 172.31.255.244/30. FD is 4294967295, RD is 4294967295
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Dest 172.31.255.244/30 (No peers) not entering active state.
+DUAL: Removing dest 172.31.255.244/30, nexthop 0.0.0.0
+DUAL: No routes.  Flushing dest 172.31.255.244/30
+
+DUAL: Send update about 172.31.255.244/30.  Reason: metric chg
+
+ROst#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 172.31.255.253 to network 0.0.0.0
+
+D    172.16.0.0/16 [90/2682112] via 172.31.255.242, 00:00:58, Serial0/1/1
+D    172.17.0.0/16 [90/2170112] via 172.31.255.242, 00:06:28, Serial0/1/1
+D    172.18.0.0/16 [90/3194112] via 172.31.255.253, 00:06:25, Serial0/0/0
+D    172.19.0.0/16 [90/3194112] via 172.31.255.253, 00:06:25, Serial0/0/0
+D    172.30.0.0/16 [90/2170112] via 172.31.255.253, 00:06:28, Serial0/0/0
+     172.31.0.0/16 is variably subnetted, 8 subnets, 2 masks
+D       172.31.255.228/30 [90/2681856] via 172.31.255.242, 00:06:28, Serial0/1/1
+D       172.31.255.232/30 [90/3193856] via 172.31.255.253, 00:06:24, Serial0/0/0
+D       172.31.255.236/30 [90/3193856] via 172.31.255.253, 00:06:24, Serial0/0/0
+C       172.31.255.240/30 is directly connected, Serial0/1/1
+L       172.31.255.241/32 is directly connected, Serial0/1/1
+D       172.31.255.248/30 [90/2681856] via 172.31.255.253, 00:06:28, Serial0/0/0
+C       172.31.255.252/30 is directly connected, Serial0/0/0
+L       172.31.255.254/32 is directly connected, Serial0/0/0
+     199.1.1.0/30 is subnetted, 1 subnets
+D       199.1.1.64/30 [90/2681856] via 172.31.255.253, 00:06:28, Serial0/0/0
+R*   0.0.0.0/0 [120/1] via 172.31.255.253, 00:00:10, Serial0/0/0
+
+ROst#
+
+
+ROst1#debug eigrp fsm 
+EIGRP FSM Events/Actions debugging is on
+ROst1#
+
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to administratively down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0, changed state to down
+
+%DUAL-5-NBRCHANGE: IP-EIGRP 23: Neighbor 172.31.255.245 (Serial0/1/0) is down: interface down
+
+DUAL: linkdown: start - 172.31.255.245 via Serial0/1/0
+
+DUAL: Destination 0.0.0.0/0
+
+DUAL: rcvupdate: 0.0.0.0/0 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 0.0.0.0/0. FD is 7801856, RD is 7289856
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.18.0.0/16
+
+DUAL: rcvupdate: 172.18.0.0/16 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.18.0.0/16. FD is 3706112, RD is 3194112
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.19.0.0/16
+
+DUAL: rcvupdate: 172.19.0.0/16 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.19.0.0/16. FD is 3706112, RD is 3194112
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.30.0.0/16
+
+DUAL: rcvupdate: 172.30.0.0/16 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.30.0.0/16. FD is 2682112, RD is 2170112
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.31.255.232/30
+
+DUAL: rcvupdate: 172.31.255.232/30 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.232/30. FD is 3705856, RD is 3193856
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.31.255.236/30
+
+DUAL: rcvupdate: 172.31.255.236/30 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.236/30. FD is 3705856, RD is 3193856
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.31.255.240/30
+
+DUAL: rcvupdate: 172.31.255.240/30 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.240/30. FD is 2681856, RD is 2169856
+
+DUAL: Destination 172.31.255.248/30
+
+DUAL: rcvupdate: 172.31.255.248/30 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.248/30. FD is 3193856, RD is 2681856
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 172.31.255.252/30
+
+DUAL: rcvupdate: 172.31.255.252/30 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.252/30. FD is 2681856, RD is 2169856
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Destination 199.1.1.64/30
+
+DUAL: rcvupdate: 199.1.1.64/30 via 172.31.255.245 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 199.1.1.64/30. FD is 3193856, RD is 2681856
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: linkdown: finish
+
+DUAL: rcvupdate: 172.31.255.244/30 via 0.0.0.0 metric 4294967295/4294967295
+
+DUAL: Find FS for dest: 172.31.255.244/30. FD is 2169856, RD is 0
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: ifdelete: Serial0/1/0 is being deleted
+DUAL: dual_ifdelete(): finish
+
+DUAL: rcvupdate: 0.0.0.0/0 via 172.31.255.230 metric 8313856/7801856
+
+DUAL: Find FS for dest: 0.0.0.0/0. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 0.0.0.0/0 via 172.31.255.230
+DUAL: Send update about 0.0.0.0/0.  Reason: metric chg
+
+DUAL: rcvupdate: 172.18.0.0/16 via 172.31.255.230 metric 4218112/3706112
+
+DUAL: Find FS for dest: 172.18.0.0/16. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.18.0.0/16 via 172.31.255.230
+DUAL: Send update about 172.18.0.0/16.  Reason: metric chg
+
+DUAL: rcvupdate: 172.19.0.0/16 via 172.31.255.230 metric 4218112/3706112
+
+DUAL: Find FS for dest: 172.19.0.0/16. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.19.0.0/16 via 172.31.255.230
+DUAL: Send update about 172.19.0.0/16.  Reason: metric chg
+
+DUAL: rcvupdate: 172.30.0.0/16 via 172.31.255.230 metric 3194112/2682112
+
+DUAL: Find FS for dest: 172.30.0.0/16. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.30.0.0/16 via 172.31.255.230
+DUAL: Send update about 172.30.0.0/16.  Reason: metric chg
+
+DUAL: rcvupdate: 172.31.255.232/30 via 172.31.255.230 metric 4217856/3705856
+
+DUAL: Find FS for dest: 172.31.255.232/30. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.31.255.232/30 via 172.31.255.230
+DUAL: Send update about 172.31.255.232/30.  Reason: metric chg
+
+DUAL: rcvupdate: 172.31.255.236/30 via 172.31.255.230 metric 4217856/3705856
+
+DUAL: Find FS for dest: 172.31.255.236/30. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.31.255.236/30 via 172.31.255.230
+DUAL: Send update about 172.31.255.236/30.  Reason: metric chg
+
+DUAL: rcvupdate: 172.31.255.248/30 via 172.31.255.230 metric 3705856/3193856
+
+DUAL: Find FS for dest: 172.31.255.248/30. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.31.255.248/30 via 172.31.255.230
+DUAL: Send update about 172.31.255.248/30.  Reason: metric chg
+
+DUAL: rcvupdate: 172.31.255.252/30 via 172.31.255.230 metric 3193856/2681856
+
+DUAL: Find FS for dest: 172.31.255.252/30. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 172.31.255.252/30 via 172.31.255.230
+DUAL: Send update about 172.31.255.252/30.  Reason: metric chg
+
+DUAL: rcvupdate: 199.1.1.64/30 via 172.31.255.230 metric 3705856/3193856
+
+DUAL: Find FS for dest: 199.1.1.64/30. FD is 4294967295, RD is 4294967295
+
+DUAL: RT installed 199.1.1.64/30 via 172.31.255.230
+DUAL: Send update about 199.1.1.64/30.  Reason: metric chg
+
+DUAL: rcvupdate: 172.31.255.244/30 via Connected metric 4294967295/0
+
+DUAL: Find FS for dest: 172.31.255.244/30. FD is 4294967295, RD is 4294967295
+
+DUAL:  	0.0.0.0 metric 4294967295/4294967295 not found Dmin is 4294967295
+
+DUAL: Dest 172.31.255.244/30 (No peers) not entering active state.
+DUAL: Removing dest 172.31.255.244/30, nexthop 0.0.0.0
+DUAL: No routes.  Flushing dest 172.31.255.244/30
+
+DUAL: Send update about 172.31.255.244/30.  Reason: metric chg
+
+ROst1#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 172.31.255.230 to network 0.0.0.0
+
+     172.16.0.0/16 is variably subnetted, 2 subnets, 2 masks
+C       172.16.0.0/16 is directly connected, GigabitEthernet0/0
+L       172.16.255.254/32 is directly connected, GigabitEthernet0/0
+D    172.17.0.0/16 [90/2170112] via 172.31.255.230, 00:06:59, Serial0/1/1
+D    172.18.0.0/16 [90/4218112] via 172.31.255.230, 00:01:30, Serial0/1/1
+D    172.19.0.0/16 [90/4218112] via 172.31.255.230, 00:01:30, Serial0/1/1
+D    172.30.0.0/16 [90/3194112] via 172.31.255.230, 00:01:30, Serial0/1/1
+     172.31.0.0/16 is variably subnetted, 7 subnets, 2 masks
+C       172.31.255.228/30 is directly connected, Serial0/1/1
+L       172.31.255.229/32 is directly connected, Serial0/1/1
+D       172.31.255.232/30 [90/4217856] via 172.31.255.230, 00:01:30, Serial0/1/1
+D       172.31.255.236/30 [90/4217856] via 172.31.255.230, 00:01:30, Serial0/1/1
+D       172.31.255.240/30 [90/2681856] via 172.31.255.230, 00:06:59, Serial0/1/1
+D       172.31.255.248/30 [90/3705856] via 172.31.255.230, 00:01:30, Serial0/1/1
+D       172.31.255.252/30 [90/3193856] via 172.31.255.230, 00:01:30, Serial0/1/1
+     199.1.1.0/30 is subnetted, 1 subnets
+D       199.1.1.64/30 [90/3705856] via 172.31.255.230, 00:01:30, Serial0/1/1
+R*   0.0.0.0/0 [120/3] via 172.31.255.230, 00:00:05, Serial0/1/1
+
+ROst1#
