@@ -1,0 +1,33 @@
+
+enable
+conf terminal
+! RIP 2
+router rip
+version 2
+passive-interface default
+no passive-interface serial 0/0/0
+no passive-interface serial 0/1/0
+no passive-interface serial 0/1/1
+network 172.31.255.0
+no auto-summary
+exit
+
+! ACTIVATE IPv6
+ipv6 unicast-routing
+! RIP ng
+ipv6 router rip process1
+exit
+
+! RIP ng / interfaces
+interface serial 0/0/0
+ipv6 rip process1 enable
+exit
+interface serial 0/1/0
+ipv6 rip process1 enable
+exit
+interface serial 0/1/1
+ipv6 rip process1 enable
+exit
+
+do copy running-config startup-config
+

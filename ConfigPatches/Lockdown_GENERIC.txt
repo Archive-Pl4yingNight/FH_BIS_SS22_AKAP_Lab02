@@ -1,0 +1,31 @@
+
+enable
+conf terminal
+! ENABLE PW >> unsecureen
+!bei: OST
+!enable password unsecureen
+!sonst:
+enable password FHisttoll
+
+! ENABLE SECRET
+!bei: OST
+!enable secret secureen
+!sonst:
+enable secret 5 $1$mERr$y8t7mzUMZVDRFxDInC.ll0
+
+! CONSOLE >> securecon
+line console 0
+!password securecon
+password Binichgut!!
+login
+exit
+
+! TELNET >> securetel
+line vty 0 15
+transport input telnet
+password securetel
+login
+exit
+
+do copy running-config startup-config
+

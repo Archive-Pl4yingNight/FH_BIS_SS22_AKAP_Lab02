@@ -1,0 +1,29 @@
+
+enable
+conf terminal
+! NO ENABLE PW >> unsecureen
+no enable password
+
+! NO ENABLE SECRET
+no enable secret
+
+! CONSOLE >> securecon
+line console 0
+no password
+login
+exit
+
+! TELNET >> securetel
+line vty 0 4
+transport input telnet
+no password
+login
+exit
+line vty 5 15
+transport input telnet
+no password
+login
+exit
+
+do copy running-config startup-config
+
