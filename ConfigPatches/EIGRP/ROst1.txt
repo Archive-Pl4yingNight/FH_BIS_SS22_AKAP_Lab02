@@ -1,0 +1,15 @@
+
+enable
+conf terminal
+! EIGRP
+router eigrp 23
+eigrp router-id 1.0.1.2
+passive-interface gigabitEthernet 0/0
+no passive-interface serial 0/1/0
+no passive-interface serial 0/1/1
+network 172.31.255.0
+network 172.16.0.0
+exit
+
+do copy running-config startup-config
+
