@@ -54,3 +54,10 @@ Routing Information Sources:
 	172.31.255.254       120      00:00:02
 	172.31.255.250       120      00:00:10
 Distance: (default is 120)
+
+
+
+! change timers
+RZentrale(config)#router rip
+RZentrale(config-router)#timers basic 5 15 15 30
+RZentrale(config-router)#exit
