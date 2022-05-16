@@ -3,6 +3,7 @@ enable
 conf terminal
 ! EIGRP
 router eigrp 23
+no auto-summary
 eigrp router-id 1.0.1.3
 passive-interface default
 no passive-interface serial 0/1/0

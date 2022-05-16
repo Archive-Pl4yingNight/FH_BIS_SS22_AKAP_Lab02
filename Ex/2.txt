@@ -69,3 +69,224 @@ R*   0.0.0.0/0 [120/1] via 172.31.255.253, 00:00:07, Serial0/0/0
 ROst>
 
 
+! EX-2-C
+RZentrale>show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 199.1.1.65 to network 0.0.0.0
+
+D    172.16.0.0/16 [90/2682112] via 172.31.255.254, 00:01:18, Serial0/0/0
+D    172.17.0.0/16 [90/2682112] via 172.31.255.254, 00:01:18, Serial0/0/0
+D    172.18.0.0/16 [90/2682112] via 172.31.255.250, 00:01:20, Serial0/0/1
+D    172.19.0.0/16 [90/2682112] via 172.31.255.250, 00:01:22, Serial0/0/1
+     172.30.0.0/16 is variably subnetted, 2 subnets, 2 masks
+C       172.30.0.0/16 is directly connected, GigabitEthernet0/0
+L       172.30.255.254/32 is directly connected, GigabitEthernet0/0
+     172.31.0.0/16 is variably subnetted, 9 subnets, 2 masks
+D       172.31.255.228/30 [90/3193856] via 172.31.255.254, 00:01:18, Serial0/0/0
+D       172.31.255.232/30 [90/2681856] via 172.31.255.250, 00:01:22, Serial0/0/1
+D       172.31.255.236/30 [90/2681856] via 172.31.255.250, 00:01:20, Serial0/0/1
+D       172.31.255.240/30 [90/2681856] via 172.31.255.254, 00:01:18, Serial0/0/0
+D       172.31.255.244/30 [90/2681856] via 172.31.255.254, 00:01:18, Serial0/0/0
+C       172.31.255.248/30 is directly connected, Serial0/0/1
+L       172.31.255.249/32 is directly connected, Serial0/0/1
+C       172.31.255.252/30 is directly connected, Serial0/0/0
+L       172.31.255.253/32 is directly connected, Serial0/0/0
+     199.1.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C       199.1.1.64/30 is directly connected, Serial0/1/0
+L       199.1.1.66/32 is directly connected, Serial0/1/0
+S*   0.0.0.0/0 [1/0] via 199.1.1.65
+
+RZentrale>
+
+ROst>show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 172.31.255.253 to network 0.0.0.0
+
+D    172.16.0.0/16 [90/2170112] via 172.31.255.246, 00:02:17, Serial0/1/0
+D    172.17.0.0/16 [90/2170112] via 172.31.255.242, 00:02:17, Serial0/1/1
+D    172.18.0.0/16 [90/3194112] via 172.31.255.253, 00:02:14, Serial0/0/0
+D    172.19.0.0/16 [90/3194112] via 172.31.255.253, 00:02:14, Serial0/0/0
+D    172.30.0.0/16 [90/2170112] via 172.31.255.253, 00:02:14, Serial0/0/0
+     172.31.0.0/16 is variably subnetted, 10 subnets, 2 masks
+D       172.31.255.228/30 [90/2681856] via 172.31.255.242, 00:02:17, Serial0/1/1
+                          [90/2681856] via 172.31.255.246, 00:02:17, Serial0/1/0
+D       172.31.255.232/30 [90/3193856] via 172.31.255.253, 00:02:14, Serial0/0/0
+D       172.31.255.236/30 [90/3193856] via 172.31.255.253, 00:02:14, Serial0/0/0
+C       172.31.255.240/30 is directly connected, Serial0/1/1
+L       172.31.255.241/32 is directly connected, Serial0/1/1
+C       172.31.255.244/30 is directly connected, Serial0/1/0
+L       172.31.255.245/32 is directly connected, Serial0/1/0
+D       172.31.255.248/30 [90/2681856] via 172.31.255.253, 00:02:14, Serial0/0/0
+C       172.31.255.252/30 is directly connected, Serial0/0/0
+L       172.31.255.254/32 is directly connected, Serial0/0/0
+     199.1.1.0/30 is subnetted, 1 subnets
+D       199.1.1.64/30 [90/2681856] via 172.31.255.253, 00:02:14, Serial0/0/0
+R*   0.0.0.0/0 [120/1] via 172.31.255.253, 00:00:04, Serial0/0/0
+
+ROst>
+
+! EX-2-D
+RZentrale>show ip eigrp neighbors 
+IP-EIGRP neighbors for process 23
+H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                   (sec)          (ms)        Cnt  Num
+0   172.31.255.250  Se0/0/1        11   00:07:14  40     1000  0   29
+1   172.31.255.254  Se0/0/0        13   00:07:10  40     1000  0   27
+RZentrale>
+
+ROst>show ip eigrp neighbors 
+IP-EIGRP neighbors for process 23
+H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                   (sec)          (ms)        Cnt  Num
+0   172.31.255.242  Se0/1/1        10   00:12:23  40     1000  0   24
+1   172.31.255.246  Se0/1/0        14   00:12:23  40     1000  0   30
+2   172.31.255.253  Se0/0/0        11   00:12:20  40     1000  0   27
+ROst>
+
+! EX-2-E
+RZentrale>show ip eigrp topology 
+IP-EIGRP Topology Table for AS 23/ID(1.0.0.1)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 0.0.0.0/0, 1 successors, FD is 6777856
+         via Rstatic (6777856/0)
+P 172.16.0.0/16, 1 successors, FD is 2682112
+         via 172.31.255.254 (2682112/2170112), Serial0/0/0
+P 172.17.0.0/16, 1 successors, FD is 2682112
+         via 172.31.255.254 (2682112/2170112), Serial0/0/0
+P 172.18.0.0/16, 1 successors, FD is 2682112
+         via 172.31.255.250 (2682112/2170112), Serial0/0/1
+P 172.19.0.0/16, 1 successors, FD is 2682112
+         via 172.31.255.250 (2682112/2170112), Serial0/0/1
+P 172.30.0.0/16, 1 successors, FD is 2816
+         via Connected, GigabitEthernet0/0
+P 172.31.255.228/30, 1 successors, FD is 3193856
+         via 172.31.255.254 (3193856/2681856), Serial0/0/0
+P 172.31.255.232/30, 1 successors, FD is 2681856
+         via 172.31.255.250 (2681856/2169856), Serial0/0/1
+P 172.31.255.236/30, 1 successors, FD is 2681856
+         via 172.31.255.250 (2681856/2169856), Serial0/0/1
+P 172.31.255.240/30, 1 successors, FD is 2681856
+         via 172.31.255.254 (2681856/2169856), Serial0/0/0
+P 172.31.255.244/30, 1 successors, FD is 2681856
+         via 172.31.255.254 (2681856/2169856), Serial0/0/0
+P 172.31.255.248/30, 1 successors, FD is 2169856
+         via Connected, Serial0/0/1
+P 172.31.255.252/30, 1 successors, FD is 2169856
+         via Connected, Serial0/0/0
+P 199.1.1.64/30, 1 successors, FD is 2169856
+         via Connected, Serial0/1/0
+RZentrale>
+
+ROst>show ip eigrp topology 
+IP-EIGRP Topology Table for AS 23/ID(1.0.1.1)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 0.0.0.0/0, 1 successors, FD is 7289856
+         via Rstatic (7289856/6777856)
+P 172.16.0.0/16, 1 successors, FD is 2170112
+         via 172.31.255.246 (2170112/2816), Serial0/1/0
+P 172.17.0.0/16, 1 successors, FD is 2170112
+         via 172.31.255.242 (2170112/2816), Serial0/1/1
+P 172.18.0.0/16, 1 successors, FD is 3194112
+         via 172.31.255.253 (3194112/2682112), Serial0/0/0
+P 172.19.0.0/16, 1 successors, FD is 3194112
+         via 172.31.255.253 (3194112/2682112), Serial0/0/0
+P 172.30.0.0/16, 1 successors, FD is 2170112
+         via 172.31.255.253 (2170112/2816), Serial0/0/0
+P 172.31.255.228/30, 2 successors, FD is 2681856
+         via 172.31.255.242 (2681856/2169856), Serial0/1/1
+         via 172.31.255.246 (2681856/2169856), Serial0/1/0
+P 172.31.255.232/30, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.31.255.236/30, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.31.255.240/30, 1 successors, FD is 2169856
+         via Connected, Serial0/1/1
+P 172.31.255.244/30, 1 successors, FD is 2169856
+         via Connected, Serial0/1/0
+P 172.31.255.248/30, 1 successors, FD is 2681856
+         via 172.31.255.253 (2681856/2169856), Serial0/0/0
+P 172.31.255.252/30, 1 successors, FD is 2169856
+         via Connected, Serial0/0/0
+P 199.1.1.64/30, 1 successors, FD is 2681856
+         via 172.31.255.253 (2681856/2169856), Serial0/0/0
+ROst>
+
+
+! EX-2-F
+! Metric: RZentrale -> ROst1
+
+RZentrale>show interfaces serial 0/0/0
+Serial0/0/0 is up, line protocol is up (connected)
+  Hardware is HD64570
+  Internet address is 172.31.255.253/30
+  MTU 1500 bytes, BW 1544 Kbit, DLY 20000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation HDLC, loopback not set, keepalive set (10 sec)
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0 (size/max/drops); Total output drops: 0
+  Queueing strategy: weighted fair
+  Output queue: 0/1000/64/0 (size/max total/threshold/drops)
+     Conversations  0/0/256 (active/max active/max total)
+     Reserved Conversations 0/0 (allocated/max allocated)
+     Available Bandwidth 1158 kilobits/sec
+  5 minute input rate 361 bits/sec, 0 packets/sec
+  5 minute output rate 527 bits/sec, 0 packets/sec
+     393 packets input, 56457 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     403 packets output, 65613 bytes, 0 underruns
+     0 output errors, 0 collisions, 1 interface resets
+     0 output buffer failures, 0 output buffers swapped out
+     0 carrier transitions
+     DCD=up  DSR=up  DTR=up  RTS=up  CTS=up
+
+RZentrale>
+
+ROst>show interfaces serial 0/1/0
+Serial0/1/0 is up, line protocol is up (connected)
+  Hardware is HD64570
+  Internet address is 172.31.255.245/30
+  MTU 1500 bytes, BW 1544 Kbit, DLY 20000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation HDLC, loopback not set, keepalive set (10 sec)
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0 (size/max/drops); Total output drops: 0
+  Queueing strategy: weighted fair
+  Output queue: 0/1000/64/0 (size/max total/threshold/drops)
+     Conversations  0/0/256 (active/max active/max total)
+     Reserved Conversations 0/0 (allocated/max allocated)
+     Available Bandwidth 1158 kilobits/sec
+  5 minute input rate 264 bits/sec, 0 packets/sec
+  5 minute output rate 475 bits/sec, 0 packets/sec
+     421 packets input, 47835 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     434 packets output, 85013 bytes, 0 underruns
+     0 output errors, 0 collisions, 1 interface resets
+     0 output buffer failures, 0 output buffers swapped out
+     0 carrier transitions
+     DCD=up  DSR=up  DTR=up  RTS=up  CTS=up
+
+ROst>
