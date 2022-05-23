@@ -1,0 +1,19 @@
+
+enable
+conf terminal
+!OSPF
+router ospf 10
+router-id 1.0.2.1
+distance 70
+passive-interface default
+no passive-interface serial 0/0/1
+no passive-interface serial 0/1/0
+no passive-interface serial 0/1/1
+network 172.31.255.0 0.0.0.255 area 0
+
+exit
+do clear ip ospf process
+yes
+
+do copy running-config startup-config
+
