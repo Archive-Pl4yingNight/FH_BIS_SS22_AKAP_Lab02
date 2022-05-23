@@ -1,0 +1,11 @@
+
+enable
+conf terminal
+! EIGRP summuary route
+interface serial 0/0/1
+ip sum
+ip summary-address eigrp 23 172.18.0.0 255.254.0.0
+exit
+
+do copy running-config startup-config
+
