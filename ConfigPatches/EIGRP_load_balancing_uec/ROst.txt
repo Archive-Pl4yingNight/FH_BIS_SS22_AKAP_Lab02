@@ -1,0 +1,18 @@
+
+enable
+conf terminal
+! EIGRP
+router eigrp 23
+variance 4
+exit
+
+! interfaces
+interface serial 0/1/0
+delay 2000
+exit
+interface serial 0/1/1
+delay 19000
+exit
+
+do copy running-config startup-config
+

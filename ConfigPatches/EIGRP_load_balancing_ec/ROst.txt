@@ -1,0 +1,11 @@
+
+enable
+conf terminal
+
+! RIP ng / interfaces
+interface serial 0/1/0
+delay 4000
+exit
+
+do copy running-config startup-config
+

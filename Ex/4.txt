@@ -1,0 +1,154 @@
+ROst#show ip eigrp topology 
+IP-EIGRP Topology Table for AS 23/ID(1.0.1.1)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 0.0.0.0/0, 1 successors, FD is 7289856
+         via Rstatic (7289856/6777856)
+P 172.16.0.0/15, 1 successors, FD is 2169856
+         via Summary (2169856/0), Null0
+P 172.16.0.0/16, 2 successors, FD is 2682112
+         via 172.31.255.246 (2682112/2816), Serial0/1/0
+         via 172.31.255.242 (2682112/2170112), Serial0/1/1
+P 172.17.0.0/16, 1 successors, FD is 2170112
+         via 172.31.255.242 (2170112/2816), Serial0/1/1
+P 172.18.0.0/15, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.30.0.0/16, 1 successors, FD is 2170112
+         via 172.31.255.253 (2170112/2816), Serial0/0/0
+P 172.31.255.228/30, 1 successors, FD is 2681856
+         via 172.31.255.242 (2681856/2169856), Serial0/1/1
+         via 172.31.255.246 (3193856/2169856), Serial0/1/0
+P 172.31.255.232/30, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.31.255.236/30, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.31.255.240/30, 1 successors, FD is 2169856
+         via Connected, Serial0/1/1
+P 172.31.255.244/30, 1 successors, FD is 2681856
+         via Connected, Serial0/1/0
+P 172.31.255.248/30, 1 successors, FD is 2681856
+         via 172.31.255.253 (2681856/2169856), Serial0/0/0
+P 172.31.255.252/30, 1 successors, FD is 2169856
+         via Connected, Serial0/0/0
+P 199.1.1.64/30, 1 successors, FD is 2681856
+         via 172.31.255.253 (2681856/2169856), Serial0/0/0
+ROst#
+
+ROst#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 172.31.255.253 to network 0.0.0.0
+
+D    172.16.0.0/15 is a summary, 00:12:21, Null0
+D    172.16.0.0/16 [90/2682112] via 172.31.255.246, 00:12:23, Serial0/1/0
+                   [90/2682112] via 172.31.255.242, 00:12:21, Serial0/1/1
+D    172.17.0.0/16 [90/2170112] via 172.31.255.242, 00:12:21, Serial0/1/1
+D    172.18.0.0/15 [90/3193856] via 172.31.255.253, 00:12:20, Serial0/0/0
+R    172.18.0.0/16 [120/3] via 172.31.255.253, 00:00:18, Serial0/0/0
+R    172.19.0.0/16 [120/3] via 172.31.255.253, 00:00:18, Serial0/0/0
+D    172.30.0.0/16 [90/2170112] via 172.31.255.253, 00:12:21, Serial0/0/0
+     172.31.0.0/16 is variably subnetted, 10 subnets, 2 masks
+D       172.31.255.228/30 [90/2681856] via 172.31.255.242, 00:12:21, Serial0/1/1
+D       172.31.255.232/30 [90/3193856] via 172.31.255.253, 00:12:20, Serial0/0/0
+D       172.31.255.236/30 [90/3193856] via 172.31.255.253, 00:12:20, Serial0/0/0
+C       172.31.255.240/30 is directly connected, Serial0/1/1
+L       172.31.255.241/32 is directly connected, Serial0/1/1
+C       172.31.255.244/30 is directly connected, Serial0/1/0
+L       172.31.255.245/32 is directly connected, Serial0/1/0
+D       172.31.255.248/30 [90/2681856] via 172.31.255.253, 00:12:21, Serial0/0/0
+C       172.31.255.252/30 is directly connected, Serial0/0/0
+L       172.31.255.254/32 is directly connected, Serial0/0/0
+     199.1.1.0/30 is subnetted, 1 subnets
+D       199.1.1.64/30 [90/2681856] via 172.31.255.253, 00:12:20, Serial0/0/0
+R*   0.0.0.0/0 [120/1] via 172.31.255.253, 00:00:18, Serial0/0/0
+
+ROst#
+
+
+
+!!!!
+
+ROst#show ip eigrp topology 
+IP-EIGRP Topology Table for AS 23/ID(1.0.1.1)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 0.0.0.0/0, 1 successors, FD is 7289856
+         via Rstatic (7289856/6777856)
+P 172.16.0.0/15, 1 successors, FD is 6521856
+         via Summary (6521856/0), Null0
+P 172.16.0.0/16, 2 successors, FD is 2170112
+         via 172.31.255.246 (2170112/2816), Serial0/1/0
+         via 172.31.255.242 (7033856/2169856), Serial0/1/1
+P 172.17.0.0/16, 2 successors, FD is 2682112
+         via 172.31.255.246 (2682112/2170112), Serial0/1/0
+         via 172.31.255.242 (6522112/2816), Serial0/1/1
+P 172.18.0.0/15, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.30.0.0/16, 1 successors, FD is 2170112
+         via 172.31.255.253 (2170112/2816), Serial0/0/0
+P 172.31.255.228/30, 2 successors, FD is 2681856
+         via 172.31.255.246 (2681856/2169856), Serial0/1/0
+         via 172.31.255.242 (7033600/2169600), Serial0/1/1
+P 172.31.255.232/30, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.31.255.236/30, 1 successors, FD is 3193856
+         via 172.31.255.253 (3193856/2681856), Serial0/0/0
+P 172.31.255.240/30, 1 successors, FD is 6521856
+         via Connected, Serial0/1/1
+P 172.31.255.244/30, 1 successors, FD is 2169856
+         via Connected, Serial0/1/0
+P 172.31.255.248/30, 1 successors, FD is 2681856
+         via 172.31.255.253 (2681856/2169856), Serial0/0/0
+P 172.31.255.252/30, 1 successors, FD is 2169856
+         via Connected, Serial0/0/0
+P 199.1.1.64/30, 1 successors, FD is 2681856
+         via 172.31.255.253 (2681856/2169856), Serial0/0/0
+ROst#
+
+ROst#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 172.31.255.253 to network 0.0.0.0
+
+D    172.16.0.0/15 is a summary, 00:03:36, Null0
+D    172.16.0.0/16 [90/2170112] via 172.31.255.246, 00:03:34, Serial0/1/0
+                   [90/7033856] via 172.31.255.242, 00:03:36, Serial0/1/1
+D    172.17.0.0/16 [90/2682112] via 172.31.255.246, 00:03:34, Serial0/1/0
+                   [90/6522112] via 172.31.255.242, 00:03:36, Serial0/1/1
+D    172.18.0.0/15 [90/3193856] via 172.31.255.253, 00:03:36, Serial0/0/0
+R    172.18.0.0/16 [120/3] via 172.31.255.253, 00:00:04, Serial0/0/0
+R    172.19.0.0/16 [120/3] via 172.31.255.253, 00:00:04, Serial0/0/0
+D    172.30.0.0/16 [90/2170112] via 172.31.255.253, 00:03:36, Serial0/0/0
+     172.31.0.0/16 is variably subnetted, 10 subnets, 2 masks
+D       172.31.255.228/30 [90/2681856] via 172.31.255.246, 00:03:34, Serial0/1/0
+                          [90/7033600] via 172.31.255.242, 00:03:36, Serial0/1/1
+D       172.31.255.232/30 [90/3193856] via 172.31.255.253, 00:03:36, Serial0/0/0
+D       172.31.255.236/30 [90/3193856] via 172.31.255.253, 00:03:36, Serial0/0/0
+C       172.31.255.240/30 is directly connected, Serial0/1/1
+L       172.31.255.241/32 is directly connected, Serial0/1/1
+C       172.31.255.244/30 is directly connected, Serial0/1/0
+L       172.31.255.245/32 is directly connected, Serial0/1/0
+D       172.31.255.248/30 [90/2681856] via 172.31.255.253, 00:03:36, Serial0/0/0
+C       172.31.255.252/30 is directly connected, Serial0/0/0
+L       172.31.255.254/32 is directly connected, Serial0/0/0
+     199.1.1.0/30 is subnetted, 1 subnets
+D       199.1.1.64/30 [90/2681856] via 172.31.255.253, 00:03:36, Serial0/0/0
+R*   0.0.0.0/0 [120/1] via 172.31.255.253, 00:00:04, Serial0/0/0
+
+ROst#
