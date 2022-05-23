@@ -1,0 +1,27 @@
+
+enable
+conf terminal
+! RIP 2
+router rip
+distance 80
+exit
+
+! keychain
+key chain route_chain
+key 1
+key-string secroute
+exit
+exit
+
+! interfaces
+interface serial 0/1/0
+ip authentication mode eigrp 23 md5
+ip authentication key-chain eigrp 23 route_chain
+exit
+interface serial 0/1/1
+ip authentication mode eigrp 23 md5
+ip authentication key-chain eigrp 23 route_chain
+exit
+
+do copy running-config startup-config
+
