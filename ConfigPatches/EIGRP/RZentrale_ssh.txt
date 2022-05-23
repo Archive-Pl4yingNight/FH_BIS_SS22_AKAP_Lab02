@@ -1,0 +1,17 @@
+
+enable
+conf terminal
+! activate ssh
+hostname RZentrale
+ip domain-name lab02.local
+crypto key generate rsa
+2048
+ip ssh version 2
+line vty 0 4
+transport input ssh
+login local
+exit
+username admin password securessh
+
+do copy running-config startup-config
+
