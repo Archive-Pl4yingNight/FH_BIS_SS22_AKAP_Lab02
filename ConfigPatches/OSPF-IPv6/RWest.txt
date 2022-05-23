@@ -5,6 +5,7 @@ conf terminal
 ipv6 unicast-routing
 ipv6 router ospf 10
 router-id 1.0.2.1
+distance 70
 passive-interface default
 no passive-interface serial 0/0/1
 no passive-interface serial 0/1/0
