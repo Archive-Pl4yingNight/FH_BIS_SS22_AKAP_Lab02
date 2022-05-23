@@ -1,0 +1,85 @@
+RZentrale#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 199.1.1.65 to network 0.0.0.0
+
+D    172.16.0.0/15 [90/2681856] via 172.31.255.254, 00:02:26, Serial0/0/0
+R    172.16.0.0/16 [80/2] via 172.31.255.254, 00:00:18, Serial0/0/0
+R    172.17.0.0/16 [80/2] via 172.31.255.254, 00:00:18, Serial0/0/0
+D    172.18.0.0/15 [90/2681856] via 172.31.255.250, 00:02:27, Serial0/0/1
+R    172.18.0.0/16 [80/2] via 172.31.255.250, 00:00:13, Serial0/0/1
+R    172.19.0.0/16 [80/2] via 172.31.255.250, 00:00:13, Serial0/0/1
+     172.30.0.0/16 is variably subnetted, 2 subnets, 2 masks
+C       172.30.0.0/16 is directly connected, GigabitEthernet0/0
+L       172.30.255.254/32 is directly connected, GigabitEthernet0/0
+     172.31.0.0/16 is variably subnetted, 9 subnets, 2 masks
+R       172.31.255.228/30 [80/2] via 172.31.255.254, 00:00:18, Serial0/0/0
+R       172.31.255.232/30 [80/1] via 172.31.255.250, 00:00:13, Serial0/0/1
+R       172.31.255.236/30 [80/1] via 172.31.255.250, 00:00:13, Serial0/0/1
+R       172.31.255.240/30 [80/1] via 172.31.255.254, 00:00:18, Serial0/0/0
+R       172.31.255.244/30 [80/1] via 172.31.255.254, 00:00:18, Serial0/0/0
+C       172.31.255.248/30 is directly connected, Serial0/0/1
+L       172.31.255.249/32 is directly connected, Serial0/0/1
+C       172.31.255.252/30 is directly connected, Serial0/0/0
+L       172.31.255.253/32 is directly connected, Serial0/0/0
+     199.1.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C       199.1.1.64/30 is directly connected, Serial0/1/0
+L       199.1.1.66/32 is directly connected, Serial0/1/0
+S*   0.0.0.0/0 [1/0] via 199.1.1.65
+
+RZentrale#show ipv
+RZentrale#show ipv6 rou
+RZentrale#show ipv6 route 
+IPv6 Routing Table - 19 entries
+Codes: C - Connected, L - Local, S - Static, R - RIP, B - BGP
+       U - Per-user Static route, M - MIPv6
+       I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF intra, OI - OSPF inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+       D - EIGRP, EX - EIGRP external
+S   ::/0 [1/0]
+     via 2001:DB8:ACAD:1::2
+C   2001:DB8:ACAD:1::/64 [0/0]
+     via Serial0/1/0, directly connected
+L   2001:DB8:ACAD:1::1/128 [0/0]
+     via Serial0/1/0, receive
+D   2001:DB8:ACAD:AC10::/64 [90/2682112]
+     via FE80::201:42FF:FE2C:CE73, Serial0/0/0
+D   2001:DB8:ACAD:AC11::/64 [90/3194112]
+     via FE80::201:42FF:FE2C:CE73, Serial0/0/0
+D   2001:DB8:ACAD:AC12::/64 [90/2682112]
+     via FE80::2D0:FFFF:FEE1:CE58, Serial0/0/1
+D   2001:DB8:ACAD:AC13::/64 [90/2682112]
+     via FE80::2D0:FFFF:FEE1:CE58, Serial0/0/1
+C   2001:DB8:ACAD:AC1E::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:DB8:ACAD:AC1E::254/128 [0/0]
+     via GigabitEthernet0/0, receive
+D   2001:DB8:ACAD:AC1F:FFE4::/80 [90/3193856]
+     via FE80::201:42FF:FE2C:CE73, Serial0/0/0
+D   2001:DB8:ACAD:AC1F:FFE8::/80 [90/2681856]
+     via FE80::2D0:FFFF:FEE1:CE58, Serial0/0/1
+D   2001:DB8:ACAD:AC1F:FFEC::/80 [90/2681856]
+     via FE80::2D0:FFFF:FEE1:CE58, Serial0/0/1
+D   2001:DB8:ACAD:AC1F:FFF0::/80 [90/7033856]
+     via FE80::201:42FF:FE2C:CE73, Serial0/0/0
+D   2001:DB8:ACAD:AC1F:FFF4::/80 [90/2681856]
+     via FE80::201:42FF:FE2C:CE73, Serial0/0/0
+C   2001:DB8:ACAD:AC1F:FFF8::/80 [0/0]
+     via Serial0/0/1, directly connected
+L   2001:DB8:ACAD:AC1F:FFF8::249/128 [0/0]
+     via Serial0/0/1, receive
+C   2001:DB8:ACAD:AC1F:FFFC::/80 [0/0]
+     via Serial0/0/0, directly connected
+L   2001:DB8:ACAD:AC1F:FFFC::253/128 [0/0]
+     via Serial0/0/0, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+RZentrale#
