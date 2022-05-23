@@ -1,0 +1,10 @@
+
+enable
+conf terminal
+! RIP 2
+router rip
+distance 80
+exit
+
+do copy running-config startup-config
+
